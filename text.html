@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <style>
+        .editable {
+  width: 360px;
+  height: 120px;
+  border: 1px solid #ccc
+}
+
+    </style> -->
+</head>
+<body>
+
+    Highlight text and change font <br>
+<select id="select_font" onchange="changeFont(this);">
+  <option value="Arial">Arial</option>
+  <option value="Sans Serif" selected>Sans Serif</option>
+  <option value="Comic Sans MS">Comic Sans MS</option>
+  <option value="Times New Roman">Times New Roman</option>
+  <option value="Courier New">Courier New</option>
+  <option value="Verdana">Verdana</option>
+  <option value="Trebuchet MS">Trebuchet MS</option>
+  <option value="Arial Black">Arial Black</option>
+  <option value="Impact">Impact</option>
+  <option value="Bookman">Bookman</option>
+  <option value="Garamond">Garamond</option>
+  <option value="Palatino">Palatino</option>
+  <option value="Georgia">Georgia</option>
+</select>
+<div contenteditable="true" class="editable">
+  Some Content
+</div>
+    <script>
+        function changeFont(font) {
+  var sel = window.getSelection(); // Gets selection
+  if (sel.rangeCount) {
+    // Creates a new element, and insert the selected text with the chosen font inside
+    var e = document.createElement('span');
+    e.style = 'font-family:' + font.value + ';'; 
+    e.innerHTML = sel.toString();
+    var range = sel.getRangeAt(0);
+    range.deleteContents(); 
+    range.insertNode(e); 
+
+  }
+}
+    </script>
+</body>
+</html>
